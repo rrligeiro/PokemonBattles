@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useGetData } from "../../services/hooks";
 import { Container, Title, Image } from "./styles";
 
 export interface PokemonCardProps {
@@ -17,6 +15,7 @@ export function PokemonCard(props: PokemonCardProps) {
         }}
       />
       <Title>{props.name}</Title>
+      {/* infobutton */}
     </Container>
   );
 }
