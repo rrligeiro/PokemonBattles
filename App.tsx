@@ -1,7 +1,5 @@
-import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes/stack.routes";
 
 export default function App() {
-  return (
-    <Home />
-  );
+  return <Routes />;
 }

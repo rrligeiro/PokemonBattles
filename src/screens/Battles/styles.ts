@@ -1,10 +1,11 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  background-color: blue;
+  flex: 1;
+  padding-top: 10%;
 `;
 
 export const Title = styled.Text`
-  color: white;
+  color: black;
   font-size: 24px;
 `;
