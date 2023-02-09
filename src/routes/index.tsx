@@ -3,19 +3,18 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 import { Home } from "../screens/Home";
 import { Battles } from "../screens/Battles";
+import { NewBattle } from "../screens/NewBattle";
 
 export function StackRoutes() {
   return (
     <Navigator
       screenOptions={{
         headerShown: false,
-        contentStyle: {
-          backgroundColor: "transparent",
-        },
       }}
     >
       <Screen name="Home" component={Home} />
       <Screen name="Battles" component={Battles} />
+      <Screen name="NewBattle" component={NewBattle} />
     </Navigator>
   );
 }

@@ -18,9 +18,6 @@ import tittle from "../../assets/tittle.png";
 
 export function Home() {
   const navigation = useNavigation();
-  function handleNewBattle() {
-    navigation.navigate("Battles");
-  }
 
   return (
     <Container>
@@ -35,10 +32,14 @@ export function Home() {
       </NextBattleContainer>
 
       <ButtonsContainer>
-        <NewBattleButton onPress={handleNewBattle}>
+        <NewBattleButton
+          onPress={() => {
+            navigation.navigate("NewBattle");
+          }}
+        >
           <NextBattleText>Agendar Batalha</NextBattleText>
         </NewBattleButton>
-        <BattlesButton onPress={() => console.log("Apertou")}>
+        <BattlesButton onPress={() => navigation.navigate("Battles")}>
           <NextBattleText>Próximas Batalhas</NextBattleText>
         </BattlesButton>
       </ButtonsContainer>
