@@ -3,7 +3,7 @@ import { api } from "../api";
 export const useGetData = () => {
   const getPokemons = async () => {
     try {
-      const response = await api.get("/pokemon?limit=100000&offset=0");
+      const response = await api.get("/pokemon?limit=10000&offset=0");
       return response.data;
     } catch (error) {
       console.log({ error });
