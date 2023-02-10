@@ -10,18 +10,20 @@ import {
   Title,
 } from "./styles";
 import { FlatList, Button, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export function NewBattle() {
+  const navigation = useNavigation();
+  const { getPokemons } = useGetData();
+
   const [pokemons, setPokemons] = useState<PokemonCardProps[]>([]);
   const [filteredPokemons, setFilteredPokemons] = useState<PokemonCardProps[]>(
     []
   );
-  const [queryText, setQueryText] = useState("");
   const [selectedPokemons, setSelectedPokemons] = useState<PokemonCardProps[]>(
     []
   );
-
-  const { getPokemons } = useGetData();
+  const [queryText, setQueryText] = useState("");
 
   const callGetData = async () => {
     const pokemonResponse = await getPokemons();
@@ -53,7 +55,6 @@ export function NewBattle() {
     ) {
       setSelectedPokemons([...selectedPokemons, pokemon]);
     }
-    console.log(selectedPokemons);
   };
 
   function renderItem({ item }: { item: PokemonCardProps }) {
@@ -102,7 +103,14 @@ export function NewBattle() {
         </Pressable>
       ) : null}
       {selectedPokemons.length === 2 ? (
-        <ScheduleBattle>
+        <ScheduleBattle
+          onPress={() => {
+            navigation.navigate("NewBattleDate", {
+              pokemonId1: selectedPokemons[0].url.split("/")[6],
+              pokemonId2: selectedPokemons[1].url.split("/")[6],
+            });
+          }}
+        >
           <ScheduleBattleText>Agendar Batalha</ScheduleBattleText>
         </ScheduleBattle>
       ) : null}

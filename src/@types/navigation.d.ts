@@ -4,6 +4,10 @@ export declare global {
       Home: undefined;
       Battles: undefined;
       NewBattle: undefined;
+      NewBattleDate: {
+        pokemonId1: string;
+        pokemonId2: string;
+      };
     }
   }
 }

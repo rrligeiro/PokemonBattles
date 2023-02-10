@@ -28,7 +28,7 @@ export function Home() {
 
       <NextBattleContainer>
         <NextBattleText>Próxima Batalha</NextBattleText>
-        <BattleCard />
+        {/* <BattleCard /> */}
       </NextBattleContainer>
 
       <ButtonsContainer>

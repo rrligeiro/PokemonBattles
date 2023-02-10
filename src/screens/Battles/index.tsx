@@ -1,11 +1,49 @@
+import { useEffect, useState } from "react";
+import { FlatList, Pressable } from "react-native";
 import { BattleCard } from "../../components/BattleCard";
+import { useDataBase, Battle } from "../../services/hooks";
 import { Container, Title } from "./styles";
 
 export function Battles() {
+  const [battles, setBattles] = useState<Battle[]>([]);
+
+  const { getBattles } = useDataBase();
+
+  const callGetBattles = async () => {
+    const battlesData = await getBattles();
+    setBattles(battlesData);
+  };
+
+  useEffect(() => {
+    callGetBattles();
+  }, []);
+
+  const { deleteBattle } = useDataBase();
+  async function handleDeleteBattle(battle: Battle) {
+    await deleteBattle(battle);
+    callGetBattles();
+  }
+
+  function renderItem({ item }: { item: Battle }) {
+    return (
+      <Pressable
+        onPress={() => {
+          handleDeleteBattle(item);
+        }}
+      >
+        <BattleCard {...item} />
+      </Pressable>
+    );
+  }
+
   return (
     <Container>
       <Title>Battles</Title>
-      <BattleCard />
+      <FlatList
+        data={battles}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+      />
     </Container>
   );
 }
