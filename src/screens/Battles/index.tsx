@@ -4,7 +4,7 @@ import { BattleCard } from "../../components/BattleCard";
 import { useDataBase, Battle } from "../../services/hooks";
 import { Container, Title } from "./styles";
 
-export function Battles() {
+export const Battles = () => {
   const [battles, setBattles] = useState<Battle[]>([]);
 
   const { getBattles } = useDataBase();
@@ -19,12 +19,12 @@ export function Battles() {
   }, []);
 
   const { deleteBattle } = useDataBase();
-  async function handleDeleteBattle(battle: Battle) {
+  const handleDeleteBattle = async (battle: Battle) => {
     await deleteBattle(battle);
     callGetBattles();
-  }
+  };
 
-  function renderItem({ item }: { item: Battle }) {
+  const renderItem = ({ item }: { item: Battle }) => {
     return (
       <Pressable
         onPress={() => {
@@ -34,7 +34,7 @@ export function Battles() {
         <BattleCard {...item} />
       </Pressable>
     );
-  }
+  };
 
   return (
     <Container>
@@ -46,4 +46,4 @@ export function Battles() {
       />
     </Container>
   );
-}
+};

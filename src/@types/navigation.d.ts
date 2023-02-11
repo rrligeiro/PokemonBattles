@@ -5,8 +5,8 @@ export declare global {
       Battles: undefined;
       NewBattle: undefined;
       NewBattleDate: {
-        pokemonId1: string;
-        pokemonId2: string;
+        pokemon1: string;
+        pokemon2: string;
       };
     }
   }

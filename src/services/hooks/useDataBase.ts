@@ -4,8 +4,16 @@ const DB_KEY = "@PokemonBattles:battles";
 
 export interface Battle {
   id: string;
-  pokemon1: string;
-  pokemon2: string;
+  pokemon1: {
+    id: string;
+    name: string;
+    types: string[];
+  };
+  pokemon2: {
+    id: string;
+    name: string;
+    types: string[];
+  };
   date: string;
 }
 
@@ -39,7 +47,6 @@ export const useDataBase = () => {
   };
 
   const deleteBattle = async (data: Battle) => {
-    console.log("deleteBattle: " + data);
     try {
       let newDb;
       const value = await AsyncStorage.getItem(DB_KEY);

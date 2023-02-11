@@ -1,0 +1,23 @@
+export default {
+  COLORS: {
+    WATER: "#5090D6",
+    DRAGON: "#0B6DC3",
+    FIRE: "#F5A623",
+    GRASS: "#5DBE4F",
+    ELECTRIC: "#F5D623",
+    PSYCHIC: "#F55E23",
+    FIGHTING: "#A23F1E",
+    GROUND: "#D6B65C",
+    ROCK: "#B6A65C",
+    DARK: "#4E4E4E",
+    STEEL: "#B6B6D6",
+    FAIRY: "#F5A6F5",
+    ICE: "#A6F5F5",
+    BUG: "#A6B61E",
+    POISON: "#A61E7D",
+    GHOST: "#7D1EA6",
+    FLYING: "#A6A6F5",
+    NORMAL: "#A6A6A6",
+    DEFAULT: "#A6A6A6",
+  },
+};

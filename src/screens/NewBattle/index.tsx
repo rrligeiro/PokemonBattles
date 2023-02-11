@@ -9,10 +9,12 @@ import {
   TextInputContainer,
   Title,
 } from "./styles";
-import { FlatList, Button, Pressable } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import Toast from "react-native-toast-message";
 
-export function NewBattle() {
+export const NewBattle = () => {
   const navigation = useNavigation();
   const { getPokemons } = useGetData();
 
@@ -35,7 +37,7 @@ export function NewBattle() {
     callGetData();
   }, []);
 
-  function handleSearch(queryText: string) {
+  const handleSearch = (queryText: string) => {
     setQueryText(queryText);
     let copyPokemons = [...pokemons];
     queryText = queryText.toLowerCase();
@@ -44,7 +46,7 @@ export function NewBattle() {
         pokemon.name.includes(queryText)
       )
     );
-  }
+  };
 
   const handleSelectPokemon = (pokemon: PokemonCardProps) => {
     if (selectedPokemons.length === 0) {
@@ -54,12 +56,31 @@ export function NewBattle() {
       selectedPokemons[0].name !== pokemon.name
     ) {
       setSelectedPokemons([...selectedPokemons, pokemon]);
+    } else if (
+      selectedPokemons.length === 1 &&
+      selectedPokemons[0].name === pokemon.name
+    ) {
+      Toast.show({
+        type: "error",
+        text1: "Não é possível selecionar o mesmo pokemon",
+        visibilityTime: 3000,
+      });
+    } else if (selectedPokemons.length === 2) {
+      Toast.show({
+        type: "error",
+        text1: "Você já selecionou dois pokemons",
+        text2: "Clique em um dos pokemons para deselecionar",
+        visibilityTime: 3000,
+      });
     }
   };
 
-  function renderItem({ item }: { item: PokemonCardProps }) {
+  const renderItem = ({ item }: { item: PokemonCardProps }) => {
     return (
-      <Pressable onPress={() => handleSelectPokemon(item)}>
+      <Pressable
+        onPress={() => handleSelectPokemon(item)}
+        style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
+      >
         <PokemonCard
           id={item.url.split("/")[6]}
           name={item.name}
@@ -67,7 +88,7 @@ export function NewBattle() {
         />
       </Pressable>
     );
-  }
+  };
 
   return (
     <Container>
@@ -78,8 +99,9 @@ export function NewBattle() {
               ? setSelectedPokemons([selectedPokemons[1]])
               : setSelectedPokemons([])
           }
+          style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
         >
-          <Title>Pokemon Selecionado</Title>
+          <Title>Primeiro Pokemon selecionado</Title>
           <PokemonCard
             id={selectedPokemons[0].url.split("/")[6]}
             name={selectedPokemons[0].name}
@@ -87,14 +109,15 @@ export function NewBattle() {
           />
         </Pressable>
       ) : null}
-      {selectedPokemons.length === 0 ? (
-        <Title>Selecione um Pokemon</Title>
-      ) : (
-        <Title>Selecione o segundo</Title>
+      {selectedPokemons.length == 1 && (
+        <Title>Selecione o segundo Pokemon</Title>
       )}
       {selectedPokemons.length > 1 ? (
-        <Pressable onPress={() => setSelectedPokemons([selectedPokemons[0]])}>
-          <Title> Pokemon Selecionado</Title>
+        <Pressable
+          onPress={() => setSelectedPokemons([selectedPokemons[0]])}
+          style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
+        >
+          <Title>Segundo Pokemon selecionado</Title>
           <PokemonCard
             id={selectedPokemons[1].url.split("/")[6]}
             name={selectedPokemons[1].name}
@@ -106,15 +129,17 @@ export function NewBattle() {
         <ScheduleBattle
           onPress={() => {
             navigation.navigate("NewBattleDate", {
-              pokemonId1: selectedPokemons[0].url.split("/")[6],
-              pokemonId2: selectedPokemons[1].url.split("/")[6],
+              pokemon1: selectedPokemons[0].name,
+              pokemon2: selectedPokemons[1].name,
             });
           }}
+          style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
         >
           <ScheduleBattleText>Agendar Batalha</ScheduleBattleText>
         </ScheduleBattle>
       ) : null}
       <TextInputContainer>
+        <Ionicons name="search" size={24} color="#000" />
         <TextInput
           placeholder={"Busque um pokemon"}
           value={queryText}
@@ -122,12 +147,14 @@ export function NewBattle() {
           onChangeText={(queryText) => handleSearch(queryText)}
         />
       </TextInputContainer>
+      {filteredPokemons.length === 0 && (
+        <Title>Nenhum pokemon com esse nome foi encontrado</Title>
+      )}
       <FlatList
         data={filteredPokemons}
         keyExtractor={(item: PokemonCardProps) => item.name}
         renderItem={renderItem}
       />
-      <Button title="OI" />
     </Container>
   );
-}
+};

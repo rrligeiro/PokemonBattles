@@ -1,4 +1,10 @@
-import { Container, Title, Image } from "./styles";
+import {
+  Container,
+  Image,
+  PokemonContainer,
+  PokemonImageContainer,
+  PokemonName,
+} from "./styles";
 
 export interface PokemonCardProps {
   id: string;
@@ -6,16 +12,19 @@ export interface PokemonCardProps {
   url: string;
 }
 
-export function PokemonCard(props: PokemonCardProps) {
+export const PokemonCard = (props: PokemonCardProps) => {
   return (
     <Container>
-      <Image
-        source={{
-          uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`,
-        }}
-      />
-      <Title>{props.name}</Title>
-      {/* infobutton */}
+      <PokemonContainer>
+        <PokemonImageContainer>
+          <Image
+            source={{
+              uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`,
+            }}
+          />
+        </PokemonImageContainer>
+        <PokemonName>{props.name.toLocaleUpperCase()}</PokemonName>
+      </PokemonContainer>
     </Container>
   );
-}
+};

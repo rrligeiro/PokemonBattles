@@ -15,8 +15,40 @@ export function StackRoutes() {
     >
       <Screen name="Home" component={Home} />
       <Screen name="Battles" component={Battles} />
-      <Screen name="NewBattle" component={NewBattle} />
-      <Screen name="NewBattleDate" component={NewBattleDate} />
+      <Screen
+        name="NewBattle"
+        component={NewBattle}
+        options={{
+          headerShown: true,
+          headerTitle: "Seleção de Pokémons",
+          headerTitleStyle: {
+            color: "#000000",
+            fontSize: 22,
+            fontWeight: "bold",
+          },
+          headerStyle: {
+            backgroundColor: "#ffffff",
+          },
+          headerTintColor: "#000000",
+        }}
+      />
+      <Screen
+        name="NewBattleDate"
+        component={NewBattleDate}
+        options={{
+          headerShown: true,
+          headerTitle: "Data da batalha",
+          headerTitleStyle: {
+            color: "#000000",
+            fontSize: 22,
+            fontWeight: "bold",
+          },
+          headerStyle: {
+            backgroundColor: "#ffffff",
+          },
+          headerTintColor: "#000000",
+        }}
+      />
     </Navigator>
   );
 }
