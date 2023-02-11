@@ -82,7 +82,6 @@ export const NewBattleDate = () => {
       },
       date: formatedDate,
     };
-    console.log(battle);
     await addBattle(battle);
     Toast.show({
       type: "success",

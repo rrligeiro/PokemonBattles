@@ -14,7 +14,23 @@ export function StackRoutes() {
       }}
     >
       <Screen name="Home" component={Home} />
-      <Screen name="Battles" component={Battles} />
+      <Screen
+        name="Battles"
+        component={Battles}
+        options={{
+          headerShown: true,
+          headerTitle: "Batalhas Agendadas",
+          headerTitleStyle: {
+            color: "#000000",
+            fontSize: 22,
+            fontWeight: "bold",
+          },
+          headerStyle: {
+            backgroundColor: "#ffffff",
+          },
+          headerTintColor: "#000000",
+        }}
+      />
       <Screen
         name="NewBattle"
         component={NewBattle}

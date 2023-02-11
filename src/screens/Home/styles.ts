@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
-  padding-top: 10%;
+  padding-top: 20%;
 `;
 
 export const Header = styled.View`
@@ -23,12 +23,18 @@ export const PokemonTitle = styled.Image`
 
 export const NextBattleContainer = styled.View`
   flex: 1;
-  background-color: red;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 26px;
+  margin: 3px;
 `;
 
 export const NextBattleText = styled.Text`
-  color: white;
-  font-size: 24px;
+  text-align: center;
+  margin: 30px;
+  color: #000;
+  font-size: 36px;
 `;
 
 export const ButtonsContainer = styled.View`
@@ -37,9 +43,19 @@ export const ButtonsContainer = styled.View`
   justify-content: center;
 `;
 
-export const NewBattleButton = styled.Pressable`
+export const NewBattleButton = styled.Pressable.attrs({
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.32,
+  shadowRadius: 5.46,
+
+  elevation: 9,
+})`
   background-color: green;
-  width: 90%;
+  width: 300px;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -52,8 +68,18 @@ export const NewBattleButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export const BattlesButton = styled.Pressable`
-  width: 90%;
+export const BattlesButton = styled.Pressable.attrs({
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.32,
+  shadowRadius: 5.46,
+
+  elevation: 9,
+})`
+  width: 300px;
   background-color: blue;
   align-items: center;
   justify-content: center;
@@ -63,6 +89,6 @@ export const BattlesButton = styled.Pressable`
 `;
 
 export const BattlesButtonText = styled.Text`
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
 `;
