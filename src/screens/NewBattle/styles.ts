@@ -9,6 +9,7 @@ export const Title = styled.Text`
   color: black;
   font-size: 20px;
   margin: 1%;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const TextInputContainer = styled.View`
@@ -25,6 +26,7 @@ export const TextInputContainer = styled.View`
 export const TextInput = styled.TextInput`
   width: 90%;
   padding: 2%;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const ScheduleBattle = styled.Pressable.attrs({
@@ -51,5 +53,5 @@ export const ScheduleBattle = styled.Pressable.attrs({
 
 export const ScheduleBattleText = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;

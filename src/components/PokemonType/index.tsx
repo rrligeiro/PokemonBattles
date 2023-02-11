@@ -22,6 +22,7 @@ export const PokemonType = (props: PokemonTypeProps) => {
       <ImageContainer>
         <TypeImage
           source={TypeImagePNG[props.type as keyof typeof TypeImagePNG]}
+          style={{ resizeMode: "contain" }}
         />
       </ImageContainer>
       <TypeContainer>

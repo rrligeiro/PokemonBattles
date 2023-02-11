@@ -9,4 +9,5 @@ export const Title = styled.Text`
   text-align: center;
   color: black;
   font-size: 24px;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;

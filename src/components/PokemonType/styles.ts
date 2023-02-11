@@ -20,15 +20,28 @@ export const Container = styled.View.attrs({
   width: 160px;
 `;
 
-export const ImageContainer = styled.View`
-  padding: 8px;
+export const ImageContainer = styled.View.attrs({
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 6,
+  },
+  shadowOpacity: 0.39,
+  shadowRadius: 8.3,
+
+  elevation: 13,
+})`
   background-color: #fff;
   border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
 `;
 
 export const TypeImage = styled.Image`
-  width: 20px;
-  height: 20px;
+  flex: 1;
 `;
 
 export const TypeContainer = styled.View`
@@ -40,4 +53,5 @@ export const TypeContainer = styled.View`
 export const TypeName = styled.Text`
   text-align: center;
   font-size: 20px;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;

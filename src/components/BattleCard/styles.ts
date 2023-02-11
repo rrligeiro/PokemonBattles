@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import theme from "../../theme/theme";
 
 export const Container = styled.View.attrs({
   shadowColor: "#000",
@@ -41,7 +42,6 @@ export const PokemonSprite = styled.Image`
 export const PokemonName = styled.Text`
   font-size: 12px;
   color: #000;
-  font-weight: bold;
   text-align: center;
   overflow: hidden;
   position: absolute;
@@ -49,6 +49,7 @@ export const PokemonName = styled.Text`
   left: 0px;
   right: 0px;
   bottom: 0px;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const FightContainer = styled.View`
@@ -67,6 +68,7 @@ export const DateText = styled.Text`
   align-self: center;
   color: black;
   font-size: 24px;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const DateTextContainer = styled.View``;

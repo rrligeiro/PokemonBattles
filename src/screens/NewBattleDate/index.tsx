@@ -12,12 +12,13 @@ import {
   PokemonTypesContainer,
   ScheduleBattleButton,
   ScheduleBattleButtonText,
+  Text,
 } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
-import { Platform, Text } from "react-native";
+import { Platform } from "react-native";
 import React, { useEffect, useState } from "react";
 import { stringifyDate } from "../../utils";
 import { useDataBase, Battle, useGetData } from "../../services/hooks";

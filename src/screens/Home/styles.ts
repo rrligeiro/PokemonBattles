@@ -35,6 +35,7 @@ export const NextBattleText = styled.Text`
   margin: 30px;
   color: #000;
   font-size: 36px;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const ButtonsContainer = styled.View`
@@ -65,7 +66,7 @@ export const NewBattleButton = styled.Pressable.attrs({
 
 export const NewBattleButtonText = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const BattlesButton = styled.Pressable.attrs({
@@ -90,5 +91,5 @@ export const BattlesButton = styled.Pressable.attrs({
 
 export const BattlesButtonText = styled.Text`
   font-size: 22px;
-  font-weight: bold;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;

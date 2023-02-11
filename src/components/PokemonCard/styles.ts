@@ -32,6 +32,7 @@ export const PokemonName = styled.Text`
   color: #000;
   font-size: 25px;
   text-align: center;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
 export const PokemonImageContainer = styled.View.attrs({

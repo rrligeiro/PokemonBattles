@@ -20,4 +20,7 @@ export default {
     NORMAL: "#A6A6A6",
     DEFAULT: "#A6A6A6",
   },
+  FONTS: {
+    DEFAULT: "SourceSansPro_900Black",
+  },
 };
