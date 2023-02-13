@@ -6,7 +6,7 @@ import { Battles } from "../screens/Battles";
 import { NewBattle } from "../screens/NewBattle";
 import { NewBattleDate } from "../screens/NewBattleDate";
 
-export function StackRoutes() {
+export const StackRoutes = () => {
   return (
     <Navigator
       screenOptions={{
@@ -67,4 +67,4 @@ export function StackRoutes() {
       />
     </Navigator>
   );
-}
+};

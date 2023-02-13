@@ -21,6 +21,14 @@ export const PokemonTitle = styled.Image`
   height: 105px;
 `;
 
+export const AlertText = styled.Text`
+  text-align: center;
+  margin: 5%;
+  color: #f00;
+  font-size: 26px;
+  font-family: ${(theme) => theme.theme.FONTS.REGULAR};
+`;
+
 export const NextBattleContainer = styled.View`
   flex: 1;
   align-items: center;
@@ -55,18 +63,14 @@ export const NewBattleButton = styled.Pressable.attrs({
 
   elevation: 9,
 })`
-  background-color: green;
+  background-color: #54c772;
   width: 300px;
   align-items: center;
   justify-content: center;
   padding: 10px;
   margin: 10px;
   border-radius: 26px;
-`;
-
-export const NewBattleButtonText = styled.Text`
-  font-size: 16px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  border: 1px solid #54c72f;
 `;
 
 export const BattlesButton = styled.Pressable.attrs({
@@ -81,15 +85,16 @@ export const BattlesButton = styled.Pressable.attrs({
   elevation: 9,
 })`
   width: 300px;
-  background-color: blue;
+  background-color: #d2d660;
   align-items: center;
   justify-content: center;
   padding: 10px;
   margin: 10px;
   border-radius: 26px;
+  border: 1px solid #d2d00f;
 `;
 
 export const BattlesButtonText = styled.Text`
   font-size: 22px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  font-family: ${(theme) => theme.theme.FONTS.BOLD};
 `;

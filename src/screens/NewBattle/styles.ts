@@ -1,5 +1,3 @@
-import { Battle } from "./../../services/hooks/useDataBase";
-import { Pressable } from "react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View``;
@@ -40,20 +38,20 @@ export const ScheduleBattle = styled.Pressable.attrs({
 
   elevation: 9,
 })`
-  width: 70%;
-  background-color: #eb0602;
+  background-color: #54c772;
+  width: 300px;
   align-self: center;
   align-items: center;
-  margin: 1%;
-  padding: 2%;
   justify-content: center;
+  padding: 6px;
+  margin: 20px;
   border-radius: 26px;
-  border: 1px solid #000;
+  border: 1px solid #54c72f;
 `;
 
 export const ScheduleBattleText = styled.Text`
-  font-size: 16px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  font-size: 24px;
+  font-family: ${(theme) => theme.theme.FONTS.BOLD};
 `;
 
 export const DisconectedText = styled.Text`

@@ -93,6 +93,10 @@ export const NewBattle = () => {
 
   return (
     <Container>
+      {selectedPokemons.length === 0 && (
+        <Title>Selecione dois pokemons para batalha</Title>
+      )}
+
       {selectedPokemons.length > 0 ? (
         <Pressable
           onPress={() =>
@@ -110,9 +114,11 @@ export const NewBattle = () => {
           />
         </Pressable>
       ) : null}
+
       {selectedPokemons.length == 1 && (
         <Title>Selecione o segundo Pokemon</Title>
       )}
+
       {selectedPokemons.length > 1 ? (
         <Pressable
           onPress={() => setSelectedPokemons([selectedPokemons[0]])}
@@ -126,6 +132,7 @@ export const NewBattle = () => {
           />
         </Pressable>
       ) : null}
+
       {selectedPokemons.length === 2 ? (
         <ScheduleBattle
           onPress={() => {
@@ -139,6 +146,7 @@ export const NewBattle = () => {
           <ScheduleBattleText>Agendar Batalha</ScheduleBattleText>
         </ScheduleBattle>
       ) : null}
+
       <TextInputContainer>
         <Ionicons name="search" size={24} color="#000" />
         <TextInput
@@ -148,6 +156,7 @@ export const NewBattle = () => {
           onChangeText={(queryText) => handleSearch(queryText)}
         />
       </TextInputContainer>
+
       {filteredPokemons.length === 0 && (
         <>
           <Title>Nenhum pokemon com esse nome foi encontrado</Title>

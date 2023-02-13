@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { BattleCard } from "../../components/BattleCard";
 import {
+  AlertText,
   BattlesButton,
   BattlesButtonText,
   ButtonsContainer,
@@ -19,7 +20,7 @@ import tittle from "../../assets/tittle.png";
 import { useEffect, useState } from "react";
 import { Battle, useDataBase } from "../../services/hooks";
 
-export function Home() {
+export const Home = () => {
   const [battles, setBattles] = useState<Battle[]>([]);
   const { getBattles } = useDataBase();
 
@@ -46,10 +47,7 @@ export function Home() {
         {battles.length > 0 ? (
           <BattleCard {...battles[0]} />
         ) : (
-          <NextBattleText>
-            Você não possui batalhas agendadas, clique no botão próximas
-            batalhas para agendar uma batalha
-          </NextBattleText>
+          <AlertText>Você ainda não possui batalhas agendadas</AlertText>
         )}
       </NextBattleContainer>
 
@@ -67,4 +65,4 @@ export function Home() {
       </ButtonsContainer>
     </Container>
   );
-}
+};

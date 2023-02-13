@@ -60,8 +60,8 @@ export const PokemonTypesContainer = styled.View``;
 
 export const PokemonName = styled.Text`
   text-align: center;
-  color: black;
-  font-size: 26px;
+  color: #000;
+  font-size: 22px;
   font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
 
@@ -86,7 +86,7 @@ export const DateButton = styled.Pressable.attrs({
   align-items: center;
   justify-content: center;
   background-color: #e0d8d7;
-  border: 2px solid #000;
+  border: 1px solid #e0d0d6;
   border-radius: 28px;
   margin: 10px;
   padding: 10px;
@@ -96,8 +96,8 @@ export const DateButton = styled.Pressable.attrs({
 export const DateButtonText = styled.Text`
   text-align: center;
   color: black;
-  font-size: 26px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  font-size: 12px;
+  font-family: ${(theme) => theme.theme.FONTS.BOLD};
 `;
 
 export const DateContainer = styled.View`
@@ -109,34 +109,35 @@ export const DateContainer = styled.View`
 export const BattleDateDisplay = styled.Text`
   text-align: center;
   color: black;
-  font-size: 24px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  font-size: 20px;
+  font-family: ${(theme) => theme.theme.FONTS.BOLD};
 `;
 
 export const ScheduleBattleButton = styled.Pressable.attrs({
   shadowColor: "#000",
   shadowOffset: {
     width: 0,
-    height: 3,
+    height: 4,
   },
-  shadowOpacity: 0.29,
-  shadowRadius: 4.65,
+  shadowOpacity: 0.32,
+  shadowRadius: 5.46,
 
-  elevation: 7,
+  elevation: 9,
 })`
+  background-color: #54c772;
+  width: 300px;
   align-self: center;
   align-items: center;
   justify-content: center;
-  background-color: #f2352e;
-  border: 2px solid #000;
-  border-radius: 28px;
+  padding: 6px;
   margin: 10px;
-  padding: 10px;
+  border-radius: 26px;
+  border: 1px solid #54c72f;
 `;
 
 export const ScheduleBattleButtonText = styled.Text`
   text-align: center;
   color: black;
   font-size: 26px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  font-family: ${(theme) => theme.theme.FONTS.BOLD};
 `;

@@ -7,8 +7,6 @@ import {
 } from "./styles";
 import TypeImagePNG from "../../assets/pokemontypes";
 import theme from "../../theme/theme";
-import { ImageComponent } from "react-native";
-
 export interface PokemonTypeProps {
   type: string;
 }

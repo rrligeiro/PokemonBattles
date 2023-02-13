@@ -2,6 +2,7 @@ import {
   BattleDateDisplay,
   Container,
   DateButton,
+  DateButtonText,
   DateContainer,
   FightImage,
   PokemonContainer,
@@ -18,7 +19,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
-import { Platform } from "react-native";
 import React, { useEffect, useState } from "react";
 import { stringifyDate } from "../../utils";
 import { useDataBase, Battle, useGetData } from "../../services/hooks";
@@ -56,7 +56,7 @@ export const NewBattleDate = () => {
     selectedDate: Date | undefined
   ) => {
     const currentDate = selectedDate || date;
-    setShow(Platform.OS === "ios" ? "" : "");
+    setShow("");
     setDate(currentDate);
   };
 
@@ -147,13 +147,13 @@ export const NewBattleDate = () => {
             onPress={() => setShow("date")}
             style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
           >
-            <Text>SELECIONAR DATA</Text>
+            <DateButtonText>SELECIONAR DATA</DateButtonText>
           </DateButton>
           <DateButton
             onPress={() => setShow("time")}
             style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
           >
-            <Text>SELECIONAR HORA</Text>
+            <DateButtonText>SELECIONAR HORA</DateButtonText>
           </DateButton>
         </DateContainer>
         <BattleDateDisplay>Data Selecionada</BattleDateDisplay>

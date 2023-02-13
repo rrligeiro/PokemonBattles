@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList, Pressable } from "react-native";
+import { FlatList } from "react-native";
 import Toast from "react-native-toast-message";
 import { BattleCard } from "../../components/BattleCard";
 import { useDataBase, Battle } from "../../services/hooks";

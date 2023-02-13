@@ -7,7 +7,7 @@ export const Container = styled.View`
 export const Title = styled.Text`
   align-self: center;
   text-align: center;
-  color: black;
+  color: #f00;
   font-size: 24px;
-  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  font-family: ${(theme) => theme.theme.FONTS.REGULAR};
 `;

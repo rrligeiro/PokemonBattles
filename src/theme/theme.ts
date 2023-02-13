@@ -21,6 +21,8 @@ export default {
     DEFAULT: "#A6A6A6",
   },
   FONTS: {
+    BOLD: "SourceSansPro_700Bold",
+    REGULAR: "SourceSansPro_400Regular",
     DEFAULT: "SourceSansPro_900Black",
   },
 };
