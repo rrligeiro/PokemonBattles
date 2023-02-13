@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Routes } from "./src/routes/stack.routes";
+import Toast from "react-native-toast-message";
+import { ThemeProvider } from "styled-components";
+import theme from "./src/theme/theme";
+import {
+  useFonts,
+  SourceSansPro_400Regular,
+  SourceSansPro_700Bold,
+  SourceSansPro_900Black,
+} from "@expo-google-fonts/source-sans-pro";
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    SourceSansPro_400Regular,
+    SourceSansPro_700Bold,
+    SourceSansPro_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <ThemeProvider theme={theme}>
+        <Routes />
+        <Toast />
+      </ThemeProvider>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
