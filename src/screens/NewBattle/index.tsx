@@ -3,6 +3,7 @@ import { useGetData } from "../../services/hooks";
 import { PokemonCard, PokemonCardProps } from "../../components/PokemonCard";
 import {
   Container,
+  DisconectedText,
   ScheduleBattle,
   ScheduleBattleText,
   TextInput,
@@ -79,7 +80,7 @@ export const NewBattle = () => {
     return (
       <Pressable
         onPress={() => handleSelectPokemon(item)}
-        style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
+        style={({ pressed }) => [{ opacity: pressed ? 0.8 : 1.0 }]}
       >
         <PokemonCard
           id={item.url.split("/")[6]}
@@ -99,7 +100,7 @@ export const NewBattle = () => {
               ? setSelectedPokemons([selectedPokemons[1]])
               : setSelectedPokemons([])
           }
-          style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
+          style={({ pressed }) => [{ opacity: pressed ? 0.8 : 1.0 }]}
         >
           <Title>Primeiro Pokemon selecionado</Title>
           <PokemonCard
@@ -115,7 +116,7 @@ export const NewBattle = () => {
       {selectedPokemons.length > 1 ? (
         <Pressable
           onPress={() => setSelectedPokemons([selectedPokemons[0]])}
-          style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
+          style={({ pressed }) => [{ opacity: pressed ? 0.8 : 1.0 }]}
         >
           <Title>Segundo Pokemon selecionado</Title>
           <PokemonCard
@@ -148,9 +149,19 @@ export const NewBattle = () => {
         />
       </TextInputContainer>
       {filteredPokemons.length === 0 && (
-        <Title>Nenhum pokemon com esse nome foi encontrado</Title>
+        <>
+          <Title>Nenhum pokemon com esse nome foi encontrado</Title>
+          <DisconectedText>
+            Caso não tenha buscado um pokemon, seu dispositivo pode estar
+            desconectado da rede.
+          </DisconectedText>
+        </>
       )}
+
       <FlatList
+        maxToRenderPerBatch={5}
+        windowSize={10}
+        updateCellsBatchingPeriod={100}
         data={filteredPokemons}
         keyExtractor={(item: PokemonCardProps) => item.name}
         renderItem={renderItem}

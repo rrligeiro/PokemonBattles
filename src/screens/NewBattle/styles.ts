@@ -55,3 +55,11 @@ export const ScheduleBattleText = styled.Text`
   font-size: 16px;
   font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
 `;
+
+export const DisconectedText = styled.Text`
+  text-align: center;
+  font-size: 16px;
+  font-family: ${(theme) => theme.theme.FONTS.DEFAULT};
+  color: red;
+  margin: 50% 10%;
+`;
