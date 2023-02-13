@@ -1,5 +1,5 @@
 # PokemonBattles
-Aplicativo desenvolvido em React Nativa pelo Expo
+Aplicativo desenvolvido em React Native pelo Expo
 
 Para iniciar é necessário instalar as dependencias e utilizar o comando
 ```bash
